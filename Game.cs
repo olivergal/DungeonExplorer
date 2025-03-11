@@ -4,7 +4,7 @@ namespace DungeonExplorer
 {
     internal class Game
     {
-        //private attributes
+        //private game attribute initilization 
         private Player player;
         private Room currentRoom;
         private Room room1;
@@ -58,7 +58,7 @@ namespace DungeonExplorer
                             break;
 
                         default:
-                            Console.WriteLine("Invalid choice." + Environment.NewLine);
+                            Console.WriteLine("Invalid choice." + Environment.NewLine);  //defensive design
                             break;
                     }
                 }
@@ -104,7 +104,7 @@ namespace DungeonExplorer
                                 currentRoom = room3;
                                 break;
                             default:
-                                Console.WriteLine("Invalid room choice." + Environment.NewLine);
+                                Console.WriteLine("Invalid room choice." + Environment.NewLine);  //defensive design
                                 break;
                         }
                         break;
@@ -115,7 +115,7 @@ namespace DungeonExplorer
                         break;
 
                     default:
-                        Console.WriteLine("Invalid choice. Please select 1, 2, or 3." + Environment.NewLine);
+                        Console.WriteLine("Invalid choice. Please select 1, 2, or 3." + Environment.NewLine);  //defensive design
                         break;
                 }
             }
@@ -166,11 +166,13 @@ namespace DungeonExplorer
             Damage = damage;
         }
 
+        //damage taken public attribute
         public void TakeDamage(int damage)
         {
             Health -= damage;
         }
 
+        //dead player public attribute
         public bool IsDead()
         {
             return Health <= 0;
