@@ -2,28 +2,31 @@
 {
     public class Room
     {
+        //private room attributes
         private string description;
         private string item;
+        public Enemy Enemy { get; }
 
-        public Room(string description, string item = null)
+        public Room(string description, string item = null, Enemy enemy = null)
         {
             this.description = description;
             this.item = item;
+            this.Enemy = enemy;
         }
 
-        //getter 
+        //room discription public attribute
         public string GetDescription()
         {
             return description;
         }
 
-        //getter 
+        //get item public attribute
         public string GetItem()
         {
-            return item ?? "No item in this room.";
+            return item ?? "No item this room.";
         }
 
-        //allows picking up item 
+        //pick up item public attribute
         public void PickUpItem()
         {
             item = null;

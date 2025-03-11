@@ -4,42 +4,49 @@ namespace DungeonExplorer
 {
     public class Player
     {
+        //private player attributes
         private string name;
         private int health;
         private List<string> inventory = new List<string>();
 
+        //public player attributes
         public Player(string name, int health)
         {
             this.name = name;
             this.health = health;
         }
 
-        //public getters
         public string Name => name;
         public int Health => health;
 
-        //adds item to player inventory
+        //pick up item public attribute
         public void PickUpItem(string item)
         {
             inventory.Add(item);
         }
 
-        //returns contents of player inventory
-        public string InventoryContents()
+        //whats in the inventory public attribute
+        public string InventoryCount()
         {
             return inventory.Count > 0 ? string.Join(", ", inventory) : "Empty";
         }
 
-        //checks player has items
+        //item to go to inventory public attribute
         public bool HasItem()
         {
             return inventory.Count > 0;
         }
 
-        //gets first item in inventory 
+        //get item public attribute
         public string GetItem()
         {
             return inventory.Count > 0 ? inventory[0] : "None";
+        }
+
+        //damage taken public attribute
+        public void TakeDamage(int damage)
+        {
+            health -= damage;
         }
     }
 }
